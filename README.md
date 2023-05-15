@@ -15,8 +15,8 @@ https://developers.google.com/fonts
 YouTube Demo Video:
 
 Checklist for us devs:
+- [*] Readme
 - [ ] Set up project fodler with node 
-- [ ] Readme
 - [ ] MongoDB Integration
 - [ ] (At least) 1 form
 - [ ] CSS
