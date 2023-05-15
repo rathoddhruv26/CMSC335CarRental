@@ -13,3 +13,13 @@ API Links:
 https://developers.google.com/fonts
 
 YouTube Demo Video:
+
+Checklist for us devs:
+Readme
+MongoDB Integration
+(At least) 1 form
+CSS
+API
+Deploy
+YouTube Video
+Remove node_modules before submit
