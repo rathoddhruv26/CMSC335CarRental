@@ -26,5 +26,7 @@ Checklist for us devs:
 - [ ] Remove node_modules before submit
 - [ ] Add popup when given wrong information for return.
 - [ ] Add popup when given same car information for submitting.
+- [ ] Add required to form inputs
+
 
 
