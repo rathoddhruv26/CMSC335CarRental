@@ -25,4 +25,6 @@ Checklist for us devs:
 - [ ] YouTube Video
 - [ ] Remove node_modules before submit
 - [ ] Add popup when given wrong information for return.
+- [ ] Add popup when given same car information for submitting.
+
 
