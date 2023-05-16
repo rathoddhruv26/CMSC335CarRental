@@ -1,6 +1,6 @@
 body {
     background-color: rgba(255, 255, 255, 0.384);
-    font-family: 'Tangerine', serif;
+    font-family: 'Instrument Sans', sans-serif;
 }
   
 h1 {
@@ -9,7 +9,7 @@ h1 {
     font-size: 55px;
     border: solid;
     width: 70rem;
-    margin-left: 22rem;
+    margin-left: 10rem;
 }
 
 #content {
@@ -28,7 +28,7 @@ h1 {
       text-decoration: none;
       display: inline-block;
       font-size: 45px;
-      margin-left: 45rem;
+      margin-left: 32rem;
       margin-top: 2rem;
 }
 
