@@ -44,7 +44,9 @@ app.get("/rent", (request, response) => {
             let cars = await getAll(client, databaseAndCollection);
 
             for (let i = 0; i < cars.length; i++) {
-                options += `<option value =` + `\"${cars[i].year} ${cars[i].make} ${cars[i].model}\"` + `>${cars[i].year} ${cars[i].make} ${cars[i].model}</option>`;
+                if (cars[i].rented == false){
+                    options += `<option value =` + `\"${cars[i].year} ${cars[i].make} ${cars[i].model}\"` + `>${cars[i].year} ${cars[i].make} ${cars[i].model}</option>`;
+                }
             }
 
             const variables = {
