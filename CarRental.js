@@ -251,7 +251,7 @@ process.stdin.on('readable', () => {
     let dataInput = process.stdin.read();
     if(dataInput !== null) {
         let command = dataInput.trim();
-        if (command === "stop") {
+        if (command.toLowerCase() == "stop") {
             console.log("Shutting down the server");
             process.exit(0);
         } else {
