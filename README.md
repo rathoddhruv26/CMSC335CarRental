@@ -19,7 +19,7 @@ Checklist for us devs:
 - [x] MongoDB Integration
 - [x] (At least) 1 form
 - [x] Set up project folder with node 
-- [ ] CSS
+- [x] CSS
 - [x] API
 - [ ] Deploy
 - [ ] YouTube Video
