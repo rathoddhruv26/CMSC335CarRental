@@ -16,11 +16,13 @@ YouTube Demo Video:
 
 Checklist for us devs:
 - [x] Readme
-- [ ] Set up project fodler with node 
-- [ ] MongoDB Integration
-- [ ] (At least) 1 form
+- [x] MongoDB Integration
+- [x] (At least) 1 form
+- [ ] Set up project folder with node 
 - [ ] CSS
 - [ ] API
 - [ ] Deploy
 - [ ] YouTube Video
 - [ ] Remove node_modules before submit
+- [ ] Add popup when given wrong information for return.
+
