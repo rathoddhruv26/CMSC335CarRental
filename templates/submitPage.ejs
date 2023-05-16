@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+
+<head>
+    <meta charset="utf-8">
+    <title>CMSC335 Car Rental</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Submit a Car</h1>
+
+    <form action="http://localhost:5000/processSubmit" method="post">
+        <fieldset>
+            <label><b>Make:</b> <input type="text" name="make"/></label><br><br>
+			<label><b>Model:</b> <input type="text" name="model"></label><br><br>
+            <label><b>Year:</b> <input type="text" name="year"/></label><br><br>
+            <label><b>License Plate:</b> <input type="text" name="licensePlate"/></label><br><br>
+        </fieldset><br>
+
+        <input type="Reset" />
+		<input onclick ="return confirm('Are you sure you want to confirm this rental?')" type="submit" value="Submit"/>
+    </form>
+
+</body>
+
+</html>

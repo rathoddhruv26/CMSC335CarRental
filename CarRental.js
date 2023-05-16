@@ -75,9 +75,9 @@ app.post("/processRental", (request, response) => {
                     rented: true,
                     custCity: `${request.body.city}`,
                     custEmail: `${request.body.email}`,
-                    custFrom: `${request.body.from}`,
+                    custFrom: new Date(`${request.body.from}`),
                     custName: `${request.body.name}`,
-                    custTo: `${request.body.to}`
+                    custTo: new Date(`${request.body.to}`)
                 },
             };
 
@@ -149,18 +149,16 @@ app.post("/processReturn", (request, response) => {
                         .collection(databaseAndCollection.collection)
                         .findOne(filter)
 
-            console.log(result);
-
             if (result) {
                 const options = { upsert: false };
                 const updateDoc = {
                     $set: {
                         rented: false,
-                        custCity: ``,
-                        custEmail: ``,
-                        custFrom: `1990-01-01`,
-                        custName: ``,
-                        custTo: `1990-01-01`
+                        custCity: "",
+                        custEmail: "",
+                        custFrom: new Date('1990-01-01'),
+                        custName: "",
+                        custTo: new Date('1990-01-01')
                     },
                 };
 
@@ -189,11 +187,59 @@ app.post("/processReturn", (request, response) => {
 });
 
 app.get("/submit", (request, response) => {
-
     response.render("submitPage");
 });
 
+app.post("/processSubmit", (request, response) => {
+    (async () =>{
+        try {
+            let car = {
+                make: `${request.body.make}`,
+                model: `${request.body.model}`,
+                year: `${request.body.year}`,
+                licensePlate: `${request.body.licensePlate}`,
+                rented: false,
+                custCity: "",
+                custEmail: "",
+                custFrom: new Date('1990-01-01'),
+                custName: "",
+                custTo: new Date('1990-01-01')
+            };
 
+            let filter = {
+                licensePlate: `${request.body.licensePlate}`
+            };
+
+            await client.connect();
+
+            let result = await client.db(databaseAndCollection.db)
+                    .collection(databaseAndCollection.collection)
+                    .findOne(filter)
+
+            if (result) {
+                console.log("Car is in Inventory Already");
+            } else {
+                await client.db(databaseAndCollection.db)
+                    .collection(databaseAndCollection.collection)
+                    .insertOne(car)
+
+                const variables = {
+                    make: request.body.make,
+                    model: request.body.model,
+                    year: request.body.year,
+                    licPlate: request.body.licensePlate,
+                };
+            
+                response.render("submitConfirm", variables);
+            }
+
+        } catch (e) {
+            console.error(e);
+        } finally {
+            await client.close();
+        }
+    })();    
+});
 
 
 app.listen(portNumber);
