@@ -21,9 +21,9 @@ Checklist for us devs:
 - [x] Set up project folder with node 
 - [x] CSS
 - [x] API
+- [x] Add required to form inputs
 - [ ] Add popup when given wrong information for return.
 - [ ] Add popup when given same car information for submitting.
-- [x] Add required to form inputs
 - [ ] Deploy
 - [ ] YouTube Video
 - [ ] Remove node_modules before submit
