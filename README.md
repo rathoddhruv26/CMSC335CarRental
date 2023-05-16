@@ -10,7 +10,7 @@ Users are able to either submit a car for rental, rent a car, or return a car us
 this apps rental service. Users can choose from a wide and varying catalog of cars.
 
 API Links:
-https://developers.google.com/fonts
+https://fonts.google.com/specimen/Instrument+Sans
 
 YouTube Demo Video:
 
