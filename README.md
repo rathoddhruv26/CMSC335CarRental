@@ -18,7 +18,7 @@ Checklist for us devs:
 - [x] Readme
 - [x] MongoDB Integration
 - [x] (At least) 1 form
-- [ ] Set up project folder with node 
+- [x] Set up project folder with node 
 - [ ] CSS
 - [ ] API
 - [ ] Deploy
