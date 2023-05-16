@@ -71,21 +71,19 @@ app.post("/processRental", (request, response) => {
             const filter = {make: myArray[1], model: myArray[2], year: myArray[0]};
             const options = { upsert: false };
             const updateDoc = {
-            $set: {
-                rented: true,
-                custCity: `${request.body.city}`,
-                custEmail: `${request.body.email}`,
-                custFrom: `${request.body.from}`,
-                custName: `${request.body.name}`,
-                custTo: `${request.body.to}`
-            },
+                $set: {
+                    rented: true,
+                    custCity: `${request.body.city}`,
+                    custEmail: `${request.body.email}`,
+                    custFrom: `${request.body.from}`,
+                    custName: `${request.body.name}`,
+                    custTo: `${request.body.to}`
+                },
             };
 
-            const result = await client.db(databaseAndCollection.db)
-                        .collection(databaseAndCollection.collection)
-                        .updateOne(filter, updateDoc, options)
-
-            console.log(result);
+            await client.db(databaseAndCollection.db)
+                    .collection(databaseAndCollection.collection)
+                    .updateOne(filter, updateDoc, options)
 
             const variables = {
                 car: request.body.car,
@@ -133,9 +131,61 @@ app.get("/return", (request, response) => {
     })();
 });
 
-app.get("/processReturn", (request, response) => {
+app.post("/processReturn", (request, response) => {
+    (async () =>{
+        try {
+            await client.connect();
+            text = request.body.car;
+            const myArray = text.split(" ");
+            const filter = {make: myArray[1], 
+                model: myArray[2], 
+                year: myArray[0], 
+                custCity: `${request.body.city}`,
+                custEmail: `${request.body.email}`,
+                custName: `${request.body.name}`,
+            };
+            
+            const result = await client.db(databaseAndCollection.db)
+                        .collection(databaseAndCollection.collection)
+                        .findOne(filter)
 
-    response.render("returnPage");
+            console.log(result);
+
+            if (result) {
+                const options = { upsert: false };
+                const updateDoc = {
+                    $set: {
+                        rented: false,
+                        custCity: ``,
+                        custEmail: ``,
+                        custFrom: `1990-01-01`,
+                        custName: ``,
+                        custTo: `1990-01-01`
+                    },
+                };
+
+                await client.db(databaseAndCollection.db)
+                    .collection(databaseAndCollection.collection)
+                    .updateOne(filter, updateDoc, options)
+
+                const variables = {
+                    car: request.body.car,
+                    name: request.body.name,
+                    email: request.body.email,
+                    city: request.body.city
+                };
+
+                response.render("returnConfirm", variables);
+            } else {
+                console.log(`No car rental found.`);
+            }      
+
+        } catch (e) {
+            console.error(e);
+        } finally {
+            await client.close();
+        }
+    })();  
 });
 
 app.get("/submit", (request, response) => {

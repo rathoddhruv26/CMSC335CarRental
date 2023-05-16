@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang = "en">
+
+
+<head>
+    <meta charset="utf-8">
+    <title>CMSC335 Car Rental</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Return a Car</h1>
+
+    <form action="http://localhost:5000/processReturn" method="post">
+        <fieldset>
+            <label><b>Name:</b> <input type="text" name="name"/></label><br><br>
+			<label><b>Email Address:</b> <input type="email" name="email"></label><br><br>
+            <label><b>City:</b> <input type="text" name="city"/></label><br><br>
+            <br><br>
+            <label><b>Select your car to return:</b></label><br>
+            <select name="car" id="car">
+                <%- cars %>
+            </select>
+        </fieldset><br>
+
+        <input type="Reset" />
+		<input onclick ="return confirm('Are you sure you want to return this rental?')" type="submit" value="Submit"/>
+    </form>
+
+</body>
+
+</html>
