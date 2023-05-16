@@ -1,9 +1,9 @@
 # CMSC335CarRental Spring 2023 Final Project : 
 
 Team Members:
-(Anirudh  anitata)
-(Dhruv    d26)
-(Jordan   jmarry)
+(Anirudh  directory id: anitata)
+(Dhruv    directory id: d26)
+(Jordan   directory id: jmarry)
 
 App Description :
 Users are able to either submit a car for rental, rent a car, or return a car using 
