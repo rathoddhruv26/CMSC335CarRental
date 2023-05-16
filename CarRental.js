@@ -63,19 +63,77 @@ app.get("/rent", (request, response) => {
 });
 
 app.post("/processRental", (request, response) => {
-    const variables = {
-        car: request.body.car,
-        name: request.body.name,
-        email: request.body.email,
-        city: request.body.city,
-        from: request.body.from,
-        to: request.body.to
-    };
+    (async () =>{
+        try {
+            await client.connect();
+            text = request.body.car;
+            const myArray = text.split(" ");
+            const filter = {make: myArray[1], model: myArray[2], year: myArray[0]};
+            const options = { upsert: false };
+            const updateDoc = {
+            $set: {
+                rented: true,
+                custCity: `${request.body.city}`,
+                custEmail: `${request.body.email}`,
+                custFrom: `${request.body.from}`,
+                custName: `${request.body.name}`,
+                custTo: `${request.body.to}`
+            },
+            };
 
-    response.render("rentConfirm", variables);
+            const result = await client.db(databaseAndCollection.db)
+                        .collection(databaseAndCollection.collection)
+                        .updateOne(filter, updateDoc, options)
+
+            console.log(result);
+
+            const variables = {
+                car: request.body.car,
+                name: request.body.name,
+                email: request.body.email,
+                city: request.body.city,
+                from: request.body.from,
+                to: request.body.to
+            };
+        
+            response.render("rentConfirm", variables);
+
+        } catch (e) {
+            console.error(e);
+        } finally {
+            await client.close();
+        }
+    })();    
 });
 
 app.get("/return", (request, response) => {
+    let options = "";
+
+    (async () =>{
+        try {
+            await client.connect();
+            let cars = await getAll(client, databaseAndCollection);
+
+            for (let i = 0; i < cars.length; i++) {
+                if (cars[i].rented == true){
+                    options += `<option value =` + `\"${cars[i].year} ${cars[i].make} ${cars[i].model}\"` + `>${cars[i].year} ${cars[i].make} ${cars[i].model}</option>`;
+                }
+            }
+
+            const variables = {
+                cars: options
+            };
+
+            response.render("returnPage", variables);
+        } catch (e) {
+            console.error(e);
+        } finally {
+            await client.close();
+        }
+    })();
+});
+
+app.get("/processReturn", (request, response) => {
 
     response.render("returnPage");
 });
