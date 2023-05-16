@@ -10,6 +10,8 @@ h1 {
     border: solid;
     width: 70rem;
     margin-left: 10rem;
+    background-color: #454764be;
+    color: azure;
 }
 
 #content {
@@ -21,7 +23,7 @@ h1 {
 .button {
       background-color: #667172c7;
       border: solid;
-      color: white;
+      color: azure;
       /* padding: 15px 32px; */
       width: 25rem;
       text-align: center;
@@ -33,7 +35,7 @@ h1 {
 }
 
 .image {
-      margin-left: 37rem;
+      margin-left: 26rem;
       margin-top: 5rem;
 }
 
@@ -59,7 +61,18 @@ p {
     font-size: 35px;
     background-color: rgba(128, 128, 128, 0.479);
     width: 40%;
-    margin-left: 34rem;
+    margin-left: 27rem;
     border: solid;
 }
 
+#sub {
+    background-color: blanchedalmond;
+}
+
+#ret {
+    background-color: rgb(224, 177, 158);
+}
+
+#rent {
+    background-color: rgba(144, 199, 156, 0.659);
+}
