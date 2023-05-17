@@ -13,17 +13,3 @@ API Links:
 https://fonts.google.com/specimen/Instrument+Sans
 
 YouTube Demo Video:
-
-Checklist for us devs:
-- [x] Readme
-- [x] MongoDB Integration
-- [x] (At least) 1 form
-- [x] Set up project folder with node 
-- [x] CSS
-- [x] API
-- [x] Add required to form inputs
-- [x] Add popup when given wrong information for return.
-- [x] Add popup when given same car information for submitting.
-- [ ] Deploy
-- [ ] YouTube Video
-- [ ] Remove node_modules before submit
