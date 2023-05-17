@@ -22,8 +22,8 @@ Checklist for us devs:
 - [x] CSS
 - [x] API
 - [x] Add required to form inputs
-- [ ] Add popup when given wrong information for return.
-- [ ] Add popup when given same car information for submitting.
+- [x] Add popup when given wrong information for return.
+- [x] Add popup when given same car information for submitting.
 - [ ] Deploy
 - [ ] YouTube Video
 - [ ] Remove node_modules before submit
