@@ -73,6 +73,11 @@ p {
     background-color: rgb(224, 177, 158);
 }
 
+#err {
+    background-color: rgba(217, 104, 104, 0.716);
+    height: 40rem;
+}
+
 #rent {
     background-color: rgba(144, 199, 156, 0.659);
 }
