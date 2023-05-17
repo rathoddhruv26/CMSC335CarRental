@@ -9,7 +9,7 @@ h1 {
     font-size: 55px;
     border: solid;
     width: 70rem;
-    margin-left: 10rem;
+    margin-left: 20rem;
     background-color: #454764be;
     color: azure;
 }
@@ -30,12 +30,12 @@ h1 {
       text-decoration: none;
       display: inline-block;
       font-size: 45px;
-      margin-left: 32rem;
+      margin-left: 45rem;
       margin-top: 2rem;
 }
 
 .image {
-      margin-left: 26rem;
+      margin-left: 35rem;
       margin-top: 5rem;
 }
 
